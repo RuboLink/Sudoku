@@ -42,7 +42,3 @@ createButton.addEventListener("click", async () => {
 })
 });
 
-
-let casillas = document.getElementsByClassName("typingBox")
-
-
