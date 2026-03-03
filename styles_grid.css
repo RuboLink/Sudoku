@@ -1,0 +1,35 @@
+#mainGrid {
+    display: none;
+    margin-top: var(--margin-top); 
+    grid-template-columns: repeat(9, 50px);
+    grid-auto-rows: 50px;
+    text-size-adjust: auto;
+    border: 8px solid black;
+    width: max-content;
+    justify-self:center;
+    
+}
+
+
+
+.typingBox[data-col="2"],
+.typingBox[data-col="5"] {
+    border-right: 5px solid black;
+}
+
+.typingBox[data-row="2"],
+.typingBox[data-row="5"] {
+    border-bottom: 5px solid black;
+}
+
+.typingBox {
+    text-align: center;
+    border: 1px solid black;
+    font-size: 25px ;
+}
+
+.typingBox:focus {
+    outline: none;
+    box-shadow: none;
+    background-color:rgb(172, 216, 255);
+}

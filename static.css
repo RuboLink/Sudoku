@@ -1,0 +1,33 @@
+:root {
+    --bg-color: rgba(61, 150, 91, 0.349);
+    --margin-top: 15px;
+}
+
+body {
+    margin: 0;
+}
+
+header {
+    background-color: var(--bg-color);
+    text-align: center;
+    font-size: 60px ;
+}
+
+#createGrid {
+    display: none;
+    justify-self:center;
+    margin-top: var(--margin-top);
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#checkResults {
+    display: block;
+    justify-self: center;
+    margin-top: var(--margin-top);
+
+}
