@@ -3,8 +3,6 @@ const createButton = document.getElementById("createGrid")
 createButton.style.display = "grid"
 const body = document.getElementsByTagName("body")
 
-let size = 9
-
 async function oneGrid(){
     for(let x = 0; x < 9; x++){
         for(let y = 0; y < 9; y++){
@@ -21,19 +19,30 @@ async function oneGrid(){
     }
 }
 
-async function corrections(){
-    let casillas = document.getElementsByClassName("typingBox");
-    casillas.forEach(n => {
-        console.log(n)
-    })
-}
+// async function corrections(){
+//     let casillas = document.getElementsByClassName("typingBox");
+//     casillas.forEach(n => {
+//         console.log(n)
+//     })
+// }
 
 createButton.addEventListener("click", async () => {
     mainGrid.style.display = "grid"
     createButton.style.display = "none"
     await oneGrid()
-    body[0].innerHTML += `<button id="checkResults">Corrígeme</button>`
+    body[0].innerHTML += `<button id="checkResults">Corregir</button>`
+
+    const correct = document.getElementById("checkResults")
+    correct.addEventListener("click", async() => {
+    let nuevo = 0
+    for(let n of casillas){
+        nuevo++
+        n.value = nuevo
+    }
+})
 });
 
-const correct = getElementById("checkResults")
+
+let casillas = document.getElementsByClassName("typingBox")
+
 
