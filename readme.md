@@ -19,7 +19,7 @@ SUDOKU/
 - Al pulsarlo, se genera una cuadrícula de 9×9 inputs.
 - Cada casilla solo permite introducir números del 1 al 9.
 - Se añade un botón "Corregir" para futuras validaciones.
-- El archivo filler.js contiene la lógica para generar:
+- El archivo validation.js contiene la lógica para generar:
     - Las coordenadas reales de cada casilla y se guardan en la constante *zonas*, que es un array de objetos.
     - Métodos para validar filas.
     - Una función para validar columnas
@@ -35,9 +35,9 @@ El proyecto utiliza dos hojas de estilo:
 ## Lógica JavaScript
 - scripts.js genera dinámicamente la cuadrícula y controla la interacción del usuario.
 - Se validan las teclas permitidas para evitar caracteres no válidos.
-- filler.js contiene funciones para:
-- Obtener filas y columnas.
-- Generar las zonas 3×3 con sus coordenadas.
+- De momento, validation.js contiene funciones para:
+    - Obtener las coordenadas de filas y columnas.
+    - Generar las coordenadas de cada bloque de 3x3, necesario para corregir el sudoku.
 ---
 ## Cómo ejecutar
 - Abre el archivo static.html en tu navegador.
