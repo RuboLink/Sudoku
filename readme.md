@@ -10,7 +10,7 @@ SUDOKU/
 ├── static.css           *Estilos generales*
 ├── styles_grid.css      *Estilos de la cuadrícula 9x9*
 ├── scripts.js           *Lógica de interacción con la página*
-├── filler.js            *Lógica para generar zonas y coordenadas*
+├── validation.js        *Lógica para generar zonas y coordenadas y validar el sudoku*
 └── readme.md            *Este archivo*
 ```
 ---
