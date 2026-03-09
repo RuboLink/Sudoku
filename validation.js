@@ -3,8 +3,8 @@ const casillas = document.getElementsByClassName("typingBox");
 async function getRows(){
   let filas = {}
 
-  for(c of casillas){
-    let x = c.dataset-row
+  for(let c of casillas){
+    let x = c.dataset.row
     
     if(!filas[x]){
       filas[x] = []
@@ -18,8 +18,8 @@ async function getRows(){
 async function getColumns(){
   let columnas = {}
 
-  for(c of casillas){
-    let y = c.dataset-col;
+  for(let c of casillas){
+    let y = c.dataset.col;
     
     if(!columnas[y]){
       columnas[y] = []
@@ -65,9 +65,6 @@ async function generarCoordenadas(){
 
 }
 
-
-const zonas = await generarCoordenadas()
-
 async function checkRow(){
   const filas = await getRows()
   for(let i = 0; i < 9; i++){
@@ -100,4 +97,33 @@ async function checkColumn(){
     }
   }
   return true
+}
+
+
+
+function getValueAt(x, y) {
+  return document.querySelector(`[data-row="${x-1}"][data-col="${y-1}"]`).value;
+}
+
+async function checkBoxes() {
+  const zonas = await generarCoordenadas();
+
+  for (const z of zonas) {
+    const valores = z.casillas.map(c => getValueAt(c.coordenadas.x, c.coordenadas.y));
+
+    if (valores.includes("")) return false;
+
+    const set = new Set(valores);
+    if (set.size !== valores.length) return false;
+  }
+
+  return true;
+}
+
+async function checkBoard() {
+  const filasOK = await checkRow();
+  const columnasOK = await checkColumn();
+  const cajasOK = await checkBoxes();
+
+  return filasOK && columnasOK && cajasOK;
 }

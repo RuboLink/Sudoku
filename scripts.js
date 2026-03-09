@@ -44,7 +44,14 @@ createButton.addEventListener("click", async () => {
     
     const checkButton = document.getElementById("checkResults")
 
-    checkButton.addEventListener("click", () => {
-        
+    checkButton.addEventListener("click", async () => {
+        console.log("Boton pulsado")
+        let test = await checkBoard()
+        console.log("Resultado: ", test)
+        if(test){
+            alert("¡Sudoku completado correctamente!")
+        } else {
+            alert("Revisa de nuevo. Algo falla")
+        }
     })
 });
