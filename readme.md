@@ -3,6 +3,7 @@
 Proyecto sencillo de Sudoku construido con HTML, CSS y JavaScript, donde se genera una cuadrícula 9×9 y se permite al usuario introducir números del 1 al 9. El objetivo es crear un generador y corrector de sudokus.
 ---
 ## Estructura del proyecto 
+```
 SUDOKU/
 │
 ├── static.html          *Página principal*
@@ -11,6 +12,7 @@ SUDOKU/
 ├── scripts.js           *Lógica de interacción con la página*
 ├── filler.js            *Lógica para generar zonas y coordenadas*
 └── readme.md            *Este archivo*
+```
 ---
 ## Funcionamiento
 - La página muestra un botón "Crear sudoku".
