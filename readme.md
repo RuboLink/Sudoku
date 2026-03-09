@@ -18,11 +18,12 @@ SUDOKU/
 - La página muestra un botón "Crear sudoku".
 - Al pulsarlo, se genera una cuadrícula de 9×9 inputs.
 - Cada casilla solo permite introducir números del 1 al 9.
-- Se añade un botón "Corregir" para futuras validaciones.
+- Se añade un botón "Corregir" para las validaciones.
 - El archivo validation.js contiene la lógica para generar:
     - Las coordenadas reales de cada casilla y se guardan en la constante *zonas*, que es un array de objetos.
     - Métodos para validar filas.
-    - Una función para validar columnas
+    - Una función para validar columnas.
+    - Se junta todo para validar filas, columnas y cada *zona* de 3x3 independiente.
 
 ---
 ## Estilos
@@ -35,14 +36,13 @@ El proyecto utiliza dos hojas de estilo:
 ## Lógica JavaScript
 - scripts.js genera dinámicamente la cuadrícula y controla la interacción del usuario.
 - Se validan las teclas permitidas para evitar caracteres no válidos.
-- De momento, validation.js contiene funciones para:
-    - Obtener las coordenadas de filas y columnas.
-    - Generar las coordenadas de cada bloque de 3x3, necesario para corregir el sudoku.
+- validation.js se encarga de la lógica para validar los sudokus.
 ---
 ## Cómo ejecutar
 - Abre el archivo static.html en tu navegador.
 - Pulsa "Crear sudoku" para generar la cuadrícula.
-- Introduce números y continúa desarrollando la lógica de validación.
+- Introduce números y prueba si has creado un sudoku válido con el botón "Corregir".
+- Todavía no está implementada la función para generar los sudokus aleatoriamente
 ---
 ## Licencia
 Este proyecto utiliza la licencia MIT, lo que permite usar, modificar y distribuir el código libremente siempre que se mantenga el aviso de copyright.
@@ -53,6 +53,5 @@ Cosas implementadas y por implementar
 
 - [] Mejora visual general.
 - [] Generación automática de tableros válidos.
-- [] Algoritmo de resolución mediante el botón "Corregir".
+- [x] Algoritmo de resolución mediante el botón "Corregir".
 - [x] Interfaz visual interactiva.
-- [] Sistema de validación en tiempo real.
