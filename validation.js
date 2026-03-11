@@ -161,5 +161,33 @@ async function checkSingleRow(currentBox){
   
   if(set.size === finalSet.size) return true;
   else return false;
+}
+
+async function getSingleCol(currentBox){
+  const y = currentBox.dataset.col
+  let column = []
+  for(let c of casillas){
+    if(c.dataset.col === y){
+      row.push(c.value)
+    }
+  }
+  return row
+}
+
+async function checkSingleCol(currentBox){
+  const column = getSingleBox(currentBox)
+  let set = new Set()
+  let finalSet = new Set()
+  for(let c of column){
+    if(c !== 0){
+      set.add(c)
+    }
+  }
   
+  for(let s of set){
+    finalSet.add(s)
+  }
+  
+  if(set.size === finalSet.size) return true;
+  else return false;
 }
