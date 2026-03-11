@@ -1,5 +1,7 @@
 const casillas = document.getElementsByClassName("typingBox");
 
+// Funciones para obtener TODAS las filas y columnas en arrays
+
 async function getRows(){
   let filas = {}
 
@@ -65,6 +67,8 @@ async function generarCoordenadas(){
 
 }
 
+// Funciones para comprobar todas las filas y todas las columnas
+
 async function checkRow(){
   const filas = await getRows()
   for(let i = 0; i < 9; i++){
@@ -126,4 +130,36 @@ async function checkBoard() {
   const cajasOK = await checkBoxes();
 
   return filasOK && columnasOK && cajasOK;
+}
+
+// Funciones para obtener una fila/columna y comprobarla individualmente
+
+async function getSingleRow(currentBox){
+  const x = currentBox.dataset.row
+  let row = []
+  for(let c of casillas){
+    if(c.dataset.row === x){
+      row.push(c.value)
+    }
+  }
+  return row
+}
+
+async function checkSingleRow(currentBox){
+  const row = getSingleBox(currentBox)
+  let set = new Set()
+  let finalSet = new Set()
+  for(let c of row){
+    if(c !== 0){
+      set.add(c)
+    }
+  }
+  
+  for(let s of set){
+    finalSet.add(s)
+  }
+  
+  if(set.size === finalSet.size) return true;
+  else return false;
+  
 }
