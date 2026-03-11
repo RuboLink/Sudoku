@@ -191,3 +191,18 @@ async function checkSingleCol(currentBox){
   if(set.size === finalSet.size) return true;
   else return false;
 }
+
+async function getZone(currentBox){
+  const zonas = await generarCoordenadas();
+  const x = currentBox.dataset.row;
+  const y = currentBox.dataset.col;
+  let currentZone
+  for(let z of zonas){
+    for(let c of z.casillas){
+      if(x === c.coordenadas.x && y === c.coordenadas.y){
+        currentZone = z.zona
+      }
+    }
+  }
+  return currentZone
+}

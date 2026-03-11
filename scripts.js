@@ -24,7 +24,7 @@ createButton.addEventListener("click", async () => {
     mainGrid.style.display = "grid";
     createButton.style.display = "none";
     await Grid();
-
+    
     body[0].innerHTML += `<button id="checkResults">Corregir</button>`;
 
     const casillas = document.getElementsByClassName("typingBox");
