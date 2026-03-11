@@ -175,7 +175,7 @@ async function getSingleCol(currentBox){
 }
 
 async function checkSingleCol(currentBox){
-  const column = getSingleBox(currentBox)
+  const column = await getSingleBox(currentBox)
   let set = new Set()
   let finalSet = new Set()
   for(let c of column){
@@ -200,9 +200,27 @@ async function getZone(currentBox){
   for(let z of zonas){
     for(let c of z.casillas){
       if(x === c.coordenadas.x && y === c.coordenadas.y){
-        currentZone = z.zona
+        return currentZone = z.zona
       }
     }
   }
-  return currentZone
+}
+
+async function checkZone(currentBox){
+  const zonas = await generarCoordenadas();
+  let checkArray = []
+  let zone = await getZone(currentBox);
+  let set = new Set()
+  for(let z of zonas){
+    if(z.zona === zone){
+      for(let c of z.casillas){
+        let valor = Number(await getValueAt(c.coordenadas.x, c.coordenadas.y))
+        if(valor !== 0)
+        checkArray.push(valor)
+        set.add(valor)
+      }
+    }
+  }
+  if(checkArray.length === set.size) return true;
+  else return false;
 }
